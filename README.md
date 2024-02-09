@@ -1,2 +1,2 @@
-# springboot-board
-게시판 만들기 프로젝트 - 자바+스프링부트 관련 기술 공부
+# Basic board Project
+> 전반적인 웹의 기본 소양이 되는 게시판 프로젝트입니다.
