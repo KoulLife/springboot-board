@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ToMist.SpringBoard.SpringBoardApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-02-11T08:59:28" hostname="Dongikui-MacBookAir.local" time="0.363">
+  <properties/>
+  <testcase name="contextLoads()" classname="ToMist.SpringBoard.SpringBoardApplicationTests" time="0.363"/>
+  <system-out><![CDATA[17:59:26.199 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [ToMist.SpringBoard.SpringBoardApplicationTests]: SpringBoardApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:59:26.238 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration ToMist.SpringBoard.SpringBoardApplication for test class ToMist.SpringBoard.SpringBoardApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.2)
+
+2024-02-11T17:59:26.424+09:00  INFO 36097 --- [    Test worker] T.S.SpringBoardApplicationTests          : Starting SpringBoardApplicationTests using Java 17.0.7 with PID 36097 (started by dongik in /Users/dongik/Desktop/dongik/Project/springboot-board)
+2024-02-11T17:59:26.425+09:00 DEBUG 36097 --- [    Test worker] T.S.SpringBoardApplicationTests          : Running with Spring Boot v3.2.2, Spring v6.1.3
+2024-02-11T17:59:26.425+09:00  INFO 36097 --- [    Test worker] T.S.SpringBoardApplicationTests          : No active profile set, falling back to 1 default profile: "default"
+2024-02-11T17:59:26.782+09:00  INFO 36097 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-11T17:59:26.804+09:00  INFO 36097 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 2 JPA repository interfaces.
+2024-02-11T17:59:27.091+09:00  INFO 36097 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-11T17:59:27.111+09:00  INFO 36097 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-11T17:59:27.129+09:00  INFO 36097 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-02-11T17:59:27.222+09:00  INFO 36097 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-11T17:59:27.233+09:00  INFO 36097 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-02-11T17:59:27.424+09:00  INFO 36097 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@77881b7a
+2024-02-11T17:59:27.424+09:00  INFO 36097 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-02-11T17:59:27.916+09:00  INFO 36097 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    alter table article_comment 
+       drop 
+       foreign key FKghmocqkgqs5tkmucf5putw64t
+Hibernate: 
+    drop table if exists article
+Hibernate: 
+    drop table if exists article_comment
+Hibernate: 
+    create table article (
+        created_at datetime(6) not null,
+        id bigint not null auto_increment,
+        modified_at datetime(6) not null,
+        created_by varchar(100) not null,
+        modified_by varchar(100) not null,
+        content varchar(10000) not null,
+        hashtag varchar(255),
+        title varchar(255) not null,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    create table article_comment (
+        article_id bigint not null,
+        created_at datetime(6) not null,
+        id bigint not null auto_increment,
+        modified_at datetime(6) not null,
+        created_by varchar(100) not null,
+        modified_by varchar(100) not null,
+        content varchar(500) not null,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    create index IDX571gx7oqo5xpmgocegaidlcu9 
+       on article (title)
+Hibernate: 
+    create index IDXai44fu6vaa28ebpydglnv7t3e 
+       on article (hashtag)
+Hibernate: 
+    create index IDXrmt77yibijtk4sarremr67saa 
+       on article (created_at)
+Hibernate: 
+    create index IDXjl4utii2etiocimt799wvtuvv 
+       on article (created_by)
+Hibernate: 
+    create index IDXpieqqnljv147sefofs56h25qx 
+       on article_comment (content)
+Hibernate: 
+    create index IDXh1jx107qecntcbcpc2vfb07ij 
+       on article_comment (created_at)
+Hibernate: 
+    create index IDXc6pa61djuf2o8xnceyyvtdbaq 
+       on article_comment (created_by)
+Hibernate: 
+    alter table article_comment 
+       add constraint FKghmocqkgqs5tkmucf5putw64t 
+       foreign key (article_id) 
+       references article (id)
+2024-02-11T17:59:28.037+09:00  INFO 36097 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-11T17:59:28.441+09:00 DEBUG 36097 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 2 mappings in 'requestMappingHandlerMapping'
+2024-02-11T17:59:28.503+09:00 DEBUG 36097 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /api/explorer/**] in 'resourceHandlerMapping'
+2024-02-11T17:59:28.536+09:00 DEBUG 36097 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-02-11T17:59:28.555+09:00 DEBUG 36097 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-02-11T17:59:28.575+09:00 DEBUG 36097 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 0 ResponseBodyAdvice
+2024-02-11T17:59:28.908+09:00  INFO 36097 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-02-11T17:59:28.955+09:00  INFO 36097 --- [    Test worker] T.S.SpringBoardApplicationTests          : Started SpringBoardApplicationTests in 2.655 seconds (process running for 3.228)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
